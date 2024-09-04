@@ -1,0 +1,57 @@
+<h2>Lista de Calificaciones</h2>
+<button (click)="openGradesModal()">Ingresar Calificaciones</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre de Tarea</th>
+      <th>Descripción de Tarea</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha Fin</th>
+      <th>Calificación</th>
+      <th>Estado</th>
+      <th>Acciones</th> <!-- Nueva columna para acciones -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let grade of grades; let i = index">
+      <td>{{ grade.Nombretarea }}</td>
+      <td>{{ grade.Descripciontarea }}</td>
+      <td>{{ grade.Fechadeinicio }}</td>
+      <td>{{ grade.Fechafin }}</td>
+      <td>{{ grade.Calificacion }}</td>
+      <td>{{ grade.Estado }}</td>
+      <td>
+        <button (click)="openEditModal(i)" class="btn btn-warning btn-sm">Editar</button>
+        <button (click)="deleteGrade(i)" class="btn btn-danger btn-sm">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal para ingreso de calificaciones -->
+<div *ngIf="isModalOpen" class="modal">
+  <div class="modal-content">
+    <span (click)="closeGradesModal()" class="close">&times;</span>
+    <h2 *ngIf="!isEditing">Ingreso de Calificaciones</h2>
+    <h2 *ngIf="isEditing">Editar Calificación</h2>
+    <form (ngSubmit)="isEditing ? saveEditedGrade() : addGrade()" #gradesForm="ngForm">
+      <label for="taskName">Nombre de Tarea:</label>
+      <input type="text" id="taskName" required [(ngModel)]="grade.Nombretarea" name="taskName"><br>
+
+      <label for="taskDescription">Descripción de Tarea:</label>
+      <input type="text" id="taskDescription" required [(ngModel)]="grade.Descripciontarea" name="taskDescription"><br>
+
+      <label for="startDate">Fecha de Inicio:</label>
+      <input type="date" id="startDate" required [(ngModel)]="grade.Fechadeinicio" name="startDate"><br>
+
+      <label for="endDate">Fecha Fin:</label>
+      <input type="date" id="endDate" required [(ngModel)]="grade.Fechafin" name="endDate"><br>
+
+      <label for="grade">Calificación:</label>
+      <input type="number" id="grade" required [(ngModel)]="grade.Calificacion" name="grade" min="0" max="10"><br>
+
+      <button type="submit">{{ isEditing ? 'Guardar Cambios' : 'Agregar Calificación' }}</button>
+    </form>
+  </div>
+</div>

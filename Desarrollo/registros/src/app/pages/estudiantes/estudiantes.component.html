@@ -1,0 +1,19 @@
+<h2>Ingreso de Estudiantes</h2>
+<form (ngSubmit)="addStudent()" #studentForm="ngForm">
+  <label for="id">Identificación:</label>
+  <input type="text" id="id" required [(ngModel)]="estudiante.id" name="id"><br>
+
+  <label for="firstName">Nombres:</label>
+  <input type="text" id="firstName" required [(ngModel)]="estudiante.Nombres" name="firstName"><br>
+
+  <label for="lastName">Apellidos:</label>
+  <input type="text" id="lastName" required [(ngModel)]="estudiante.Apellidos" name="lastName"><br>
+
+  <label for="dob">Fecha de Nacimiento:</label>
+  <input type="date" id="dob" required [(ngModel)]="estudiante.dob" name="dob"><br>
+
+  <label for="course">Curso:</label>
+  <input type="text" id="course" required [(ngModel)]="estudiante.Curso" name="course"><br>
+
+  <button type="submit">Agregar Estudiante</button>
+</form>

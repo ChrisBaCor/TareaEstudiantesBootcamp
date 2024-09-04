@@ -1,0 +1,43 @@
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #343a40; /* Fondo oscuro */
+    padding: 10px 20px;
+    border-bottom: 2px solid #007bff; /* Línea de borde inferior */
+  }
+  
+  /* Estilo para el enlace de la marca */
+  .navbar-brand {
+    color: #2320eb; /* Color del texto */
+    font-size: 1.75em; /* Tamaño del texto */
+    font-weight: bold; /* Peso del texto */
+    text-transform: uppercase; /* Texto en mayúsculas */
+  }
+  
+  .navbar-brand i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+  }
+  
+  /* Estilo para los enlaces de navegación */
+  .nav-link {
+    color: #ffffff; /* Color del texto de los enlaces */
+    margin: 0 15px; /* Espaciado entre los enlaces */
+    transition: color 0.3s; /* Transición suave del color */
+  }
+  
+  /* Efecto al pasar el ratón sobre los enlaces */
+  .nav-link:hover {
+    color: #007bff; /* Color del texto al pasar el ratón */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+  }
+  
+  /* Estilo para el contenedor de los enlaces de navegación */
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* Espaciado entre los elementos de la lista */
+  .nav-item {
+    margin: 0 10px;
+  }
+  
